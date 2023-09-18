@@ -1,2 +1,8 @@
 .terraform/
-.terraforom.lock.hcl
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate
+terraform.tfstate.backup
+terraform_ansible_aws
+terraform_ansible_aws.pub
+myplan.tfplan

@@ -1,0 +1,19 @@
+- name: MasterInstallation
+  hosts: masters
+  become: true
+  vars_files:
+        - ./secure.yml
+  roles:
+      - role: kubernetes_master
+
+
+- name: WorkerInstallation
+  hosts: workers
+  vars_files:
+          - ./secure.yml
+  vars_prompt:
+      - name: token_join
+        prompt: "Enter your token to join master"
+        private: False
+  roles:
+    - role: kubernetes_slave 

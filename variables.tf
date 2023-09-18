@@ -28,3 +28,60 @@ variable "owner" {
   type        = string
   default     = "napo.io"
 }
+variable "master_instance_type" {
+  description = "EC2 instance type for K8s master instances"
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "worker_instance_type" {
+  description = "EC2 instance type for K8s worker instances"
+  type        = string
+  default     = "t2.micro"
+}
+
+variable "aws_key_pair_name" {
+  description = "AWS Key Pair name to use for EC2 Instances (if already existent)"
+  type        = string
+  default     = null
+}
+variable "ssh_public_key_path" {
+  description = "SSH public key path (to create a new AWS Key Pair from existing local SSH public RSA key)"
+  type        = string
+  default     = "~/.ssh/id_rsa.pub"
+}
+variable "master_max_size" {
+  description = "Maximum number of EC2 instances for K8s Master AutoScalingGroup"
+  type        = number
+  default     = 1
+}
+
+variable "master_min_size" {
+  description = "Minimum number of EC2 instances for K8s Master AutoScalingGroup"
+  type        = number
+  default     = 1
+}
+
+variable "master_size" {
+  description = "Desired number of EC2 instances for K8s Master AutoScalingGroup"
+  type        = number
+  default     = 1
+}
+
+variable "worker_max_size" {
+  description = "Maximum number of EC2 instances for K8s Worker AutoScalingGroup"
+  type        = number
+  default     = 2
+}
+
+variable "worker_min_size" {
+  description = "Minimum number of EC2 instances for K8s Worker AutoScalingGroup"
+  type        = number
+  default     = 1
+}
+
+variable "worker_size" {
+  description = "Desired number of EC2 instances for K8s Worker AutoScalingGroup"
+  type        = number
+  default     = 2
+}
